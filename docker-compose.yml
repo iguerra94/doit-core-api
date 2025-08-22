@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  doit-db:
+    image: postgres:latest
+    container_name: doit-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: doit
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: secret
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./.postgres:/var/lib/postgresql/data
